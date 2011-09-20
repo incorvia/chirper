@@ -34,12 +34,12 @@ role :db,  "96.8.120.141"
 
 # Precompile Assets
 
-after 'deploy:update_code', 'deploy:compile_assets'
-namespace :deploy do
-  task :compile_assets do
-    run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
-  end
-end
+#after 'deploy:update_code', 'deploy:compile_assets'
+#namespace :deploy do
+#  task :compile_assets do
+#    run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
+#  end
+#end
 
 
 # Passenger
