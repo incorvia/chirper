@@ -44,9 +44,11 @@ a:visited {
 
 /* Naviation */
 
+
 nav {
 	float: right;
 }
+
 
 nav {
 	background-color: white;
@@ -79,13 +81,6 @@ nav ul li a:hover{
 	text-decoration: underline;
 }
 
-/* Round Corners */
-
-.round {
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-}
 
 /* Signup Button */
 
@@ -100,6 +95,13 @@ a.signup_button {
 	font-size: 150%;
 	font-weight: bold;
 	padding: 20px;
+}
+
+/* Round Corners */
+.round {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
 }
 
 /* Footer */
