@@ -16,7 +16,7 @@ gem 'jquery-rails'
 
 
 group :test do
-  gem 'rspec'
+  gem 'rspec-rails'
   gem 'webrat'
 end
 
