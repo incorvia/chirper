@@ -89,7 +89,7 @@ describe User do
     
     it "should reject long passwords" do
       long = "a" * 41
-      User.new(@attr.merge(:password => long)).
+      User.new(@attr.merge(:password => long, :password_confirmation => long)).
         should_not be_valid
     end
   end
@@ -106,7 +106,37 @@ describe User do
     
     it "should set the encrypted password" do
       @user.encrypted_password.should_not be_blank
-    end
+    end  
+  
+    describe "has_password? method" do       # --------  Has Password  --------
     
-  end  
+      it "should respond true if passwords match" do
+        @user.has_password?(@attr[:password]).should be_true
+      end
+    
+      it "should return false if passwords don't match" do
+        @user.has_password?("invalid").should be_false
+      end
+    end
+  
+    describe "authenticate user" do          # --------  Authentication  --------
+  
+      it "should return nil on email / pasword mis-match" do
+        wrong_password_user = User.authenticate(@attr[:email], "wrong")
+        wrong_password_user.should be_nil
+      end
+    
+      it "should return nil for an email address with no user" do
+        nonexistant_user = User.authenticate("bar@foo.com", @attr[:password])
+        nonexistant_user.should be_nil
+      end
+      
+      it "should return the user on email / password match" do
+        matching_user = User.authenticate(@attr[:email], @attr[:password])
+        matching_user == @user
+      end
+  
+    end
+  
+  end
 end
