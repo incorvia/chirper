@@ -53,9 +53,9 @@
           controller.should be_signed_in
         end
 
-        it "should redirect to the user show page" do
+        it "should redirect to the user root" do
           post :create, :session => @attr
-          response.should redirect_to(user_path(@user))
+          response.should redirect_to(root_url )
         end
       end
     end
