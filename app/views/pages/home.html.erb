@@ -1,5 +1,22 @@
-<h1>Chirper App</h1>
+<% if signed_in? %>
+ 	<table class="front" summary="For signed-in users">
+ 		<tr>
+ 			<td class="main">
+ 				<h1 class="micropost">What's up?</h1>
+ 				<%= render 'shared/micropost_form' %>
+ 			</td>
+ 			<td class="sidebar round">
+ 				<%= render 'shared/user_info' %>
+ 			</td
+ 		</tr>
+ 	</table>
 
-<p>This is the home page for the Chirper App, a demo application executed by Kevin Incorvia.</p>
+ 	<% else %>
+		<h1>Chirper App</h1>
+		<p>
+			This is the home page for the Chirper App, a demo application executed by Kevin Incorvia.  I built it following the 'Ruby on Rails Tutorial.'
+		</p>
 
-<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+		<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+
+	<% end %>

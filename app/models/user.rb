@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation
 
-  has_many  :microposts
+  has_many  :microposts,  :dependent => :destroy
   
   email_regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
   
@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   
   before_save :encrypt_password
 
+  def feed
+    #preliminary
+    Micropost.where("user_id = ?", id)
+  end
   
   def has_password?(submitted_password)
     #define a method that checks if the encrypted password matches version stored in DB
