@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '2.2'
+ruby '2.2.0'
 
 gem 'rails', '3.1.0'
 gem 'gravatar_image_tag', '1.0.0.pre2'
