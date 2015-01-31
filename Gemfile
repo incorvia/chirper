@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+ruby '2.2'
+
 gem 'rails', '3.1.0'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'will_paginate', '3.0.pre2'
@@ -14,15 +16,16 @@ end
 
 gem 'jquery-rails'
 
+group :test, :development do
+  gem 'rspec-rails'
+end
 
 group :test do
-  gem 'rspec-rails'
   gem 'webrat'
   gem 'factory_girl_rails'
 end
 
 group :development do
-  gem 'rspec-rails'
   gem 'faker', '0.3.1'
   gem 'sqlite3'
 end
